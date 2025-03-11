@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container p-2">
+        <div class="row row1">
+            <button type="button" class="btn btn-primary" onclick="onMyKnopochkaPress(this)">Я синяя кнопочка</button>
+            <button type="button" class="btn btn-info" onclick="onMyKnopochkaPress(this)">Я бирюзовая кнопочка</button>
+            <button type="button" class="btn btn-warning" onclick="onMyKnopochkaPress(this)">Я желтая кнопочка</button>
+        </div>
+        <div class="row justify-content-center mt-2">
+          <div class="col-auto">
+            <div id="kvadrat" class="border shadow d-flex align-items-center justify-content-center" style="width: 200px;height:200px;"></div>
+          </div>
+        </div>
+    </div>
+
+      <script>
+        function onMyKnopochkaPress (target) {
+          
+          let kvadrat = document.getElementById("kvadrat");
+          kvadrat.innerText = target.innerText
+          if (target.innerText == "Я синяя кнопочка") {
+            kvadrat.style.backgroundColor = "#1E90FF";
+          } else if (target.innerText == "Я бирюзовая кнопочка") {
+            kvadrat.style.backgroundColor = "#008080";
+          } else if (target.innerText == "Я желтая кнопочка") {
+            kvadrat.style.backgroundColor = "#ffd500";
+          }
+        }
+        function onMyKnopkaPress (button) {
+          
+          console.log(button.classList)
+        }
+      </script>
+      <style>
+        #kvadrat {  
+          transition: all .3s;
+        }
+      </style>
+</body>
+</html>
