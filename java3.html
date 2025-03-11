@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <table class="table table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th>Название</th>
+                <th>Рейтинг</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-title="Унесённые призраками" data-rating="8.4" data-year="2001" data-director="Хаяо Миядзаки" data-image="https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/64becb5d-e7b9-4a56-8c71-5008294a854a/300x450" onclick="onRowClick(this)">
+                <td>Унесённые призраками</td>
+                <td>8.4</td>
+              </tr>
+              <tr data-title="Малхолланд Драйв" data-rating="7.6" data-year="2002" data-director="Дэвид Линч" data-image="https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/477bd555-16ee-47aa-be90-6a252c189414/300x450" onclick="onRowClick(this)">
+                <td>Малхолланд Драйв</td>
+                <td>7.6</td>
+              </tr>
+              <tr data-title="Мертвец" data-rating="7.8" data-year="1995" data-director="Джим Джармуш" data-image="https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/707e78dc-43a0-4309-88f0-dee4ce7a4e57/300x450" onclick="onRowClick(this)">
+                <td>Мертвец</td>
+                <td>7.8</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4">
+          <div class="shadow p-2 text-center">
+            <h4 id="title">Название</h4>
+            <img id="image" src="" alt="Movie Image" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td><strong>Режиссер</strong></td>
+                  <td id="director">-</td>
+                </tr>
+                <tr>
+                  <td><strong>Год выпуска</strong></td>
+                  <td id="year">-</td>
+                </tr>
+                <tr>
+                  <td><strong>Рейтинг</strong></td>
+                  <td id="rating">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+      .table tr td:hover {
+        cursor: pointer;
+      }
+    </style>
+   <script>
+    function onRowClick(row) {
+      let title = document.getElementById("title");
+      let year = document.getElementById("year");
+      let director = document.getElementById("director");
+      let image = document.getElementById("image");
+      let rating = document.getElementById("rating");
+
+      title.innerText = row.dataset.title;
+      year.innerText = row.dataset.year;
+      director.innerText = row.dataset.director;
+      rating.innerText = row.dataset.rating;
+      image.src = row.dataset.image;
+
+      document.querySelectorAll(".table tbody tr").forEach(el => {
+          el.classList.remove("table-info");
+      })
+      row.classList.add("table-info");
+    }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

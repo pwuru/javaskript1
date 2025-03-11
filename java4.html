@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      .btn-number {
+        background-color: #007bff;
+        border: 1px solid #007bff;
+        color: white;
+      }
+      .btn-number:hover {
+        background-color: #0056b3;
+      }
+      .btn-operator {
+        background-color: #f0ad4e; 
+        border: 1px solid #eea236;
+        color: white;
+      }
+      .btn-operator:hover {
+        background-color: #ec971f;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container p-2">
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <div class="row">
+            <div class="col-12">
+              <input id="textField" class="form-control text-right" readonly />
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-3">
+              <button class="btn btn-number w-100" onclick="appendToField('7')">7</button>
+            </div>
+            <div class="col-3">
+              <button class="btn btn-number w-100" onclick="appendToField('8')">8</button>
+            </div>
+            <div class="col-3">
+              <button class="btn btn-number w-100" onclick="appendToField('9')">9</button>
+            </div>
+            <div class="col-3">
+              <button class="btn btn-operator w-100" onclick="appendToField('*')">X</button>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-3">
+              <button class="btn btn-number w-100" onclick="appendToField('4')">4</button>
+            </div>
+            <div class="col-3">
+              <button class="btn btn-number w-100" onclick="appendToField('5')">5</button>
+            </div>
+            <div class="col-3">
+              <button class="btn btn-number w-100" onclick="appendToField('6')">6</button>
+            </div>
+            <div class="col-3">
+              <button class="btn btn-operator w-100" onclick="appendToField('/')">/</button>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-3">
+              <button class="btn btn-number w-100" onclick="appendToField('1')">1</button>
+            </div>
+            <div class="col-3">
+              <button class="btn btn-number w-100" onclick="appendToField('2')">2</button>
+            </div>
+            <div class="col-3">
+              <button class="btn btn-number w-100" onclick="appendToField('3')">3</button>
+            </div>
+            <div class="col-3">
+              <button class="btn btn-operator w-100" onclick="appendToField('+')">+</button>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-9">
+              <button class="btn btn-number w-100" onclick="appendToField('0')">0</button>
+            </div>
+            <div class="col-3">
+              <button class="btn btn-operator w-100" onclick="calculateResult()">=</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function appendToField(value) {
+        let textField = document.getElementById("textField");
+        textField.value += value;
+      }
+
+      function calculateResult() {
+        let textField = document.getElementById("textField");
+        try {
+          textField.value = eval(textField.value);
+        } catch (e) {
+          textField.value = "Error";
+        }
+      }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
